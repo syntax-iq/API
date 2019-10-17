@@ -31,7 +31,7 @@ https://api.syntaxiq.com/v1
 
 **401 Unauthorized** - Either no authentication credentials were provided or they are invalid.
 
-**402 Payment Required** - Account does not have a enough credit to perform request.
+**402 Payment Required** - Account does not have enough credit to perform request.
 
 **429 Too Many Requests** - You've hit the rate limit, wait a bit.
 
@@ -63,7 +63,7 @@ Each account can only make 5 requests per second. If you need more mail us at [s
 ```sh
 $ curl --request POST \
   --url 'https://api.syntaxiq.com/v1/describe?api_key=$API_KEY' \
-  --F 'file=@path/to/local/file'
+  -F 'file=@path/to/local/file'
 ```
 
 ```json
@@ -71,5 +71,20 @@ $ curl --request POST \
   "result": {
     "description": "Description here"
   }
+}
+```
+
+### Use Vision
+```POST /vision```
+
+```sh
+$ curl --request POST \
+  --url 'https://api.syntaxiq.com/v1/vision?fields=category&api_key=$API_KEY' \
+  -F 'images=@path/to/local/file'
+```
+
+```json
+{
+  "results": ["headwear"]
 }
 ```
